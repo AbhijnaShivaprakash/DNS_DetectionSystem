@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="refresh" content="3">
+    <title>DNS Monitoring Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+<div class="container">
+
+    <h1>DNS Monitoring Dashboard</h1>
+
+    {% if alert %}
+    <div class="logs" style="border:2px solid red; margin-bottom:20px;">
+        <h2>{{ alert }}</h2>
+    </div>
+    {% endif %}
+
+    <div class="dashboard">
+
+        <div class="card">
+            <h2>Status</h2>
+            <p class="status-running">{{ status }}</p>
+        </div>
+
+        <div class="card">
+            <h2>Packets Captured</h2>
+            <p>{{ packets }}</p>
+        </div>
+
+        <div class="card">
+            <h2>Total Redirected Requests</h2>
+            <p>{{ spoofed }}</p>
+        </div>
+
+    </div>
+
+    <div class="logs">
+        <h2>Live System Logs</h2>
+
+        {% for log in logs %}
+            <p>{{ log }}</p>
+        {% endfor %}
+    </div>
+
+</div>
+</body>
+</html>
+     
